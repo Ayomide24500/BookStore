@@ -18,7 +18,7 @@ const Header = () => {
                 <Search>
                     <BsSearch />
                 </Search>
-                <NavLink to="/upload-book" style={{textDecoration: "none"}}>
+                <NavLink to="upload-book" style={{textDecoration: "none"}}>
                 <Button>Upload Books</Button>
                 </NavLink>
             </End>

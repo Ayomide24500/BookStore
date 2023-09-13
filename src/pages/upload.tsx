@@ -1,36 +1,39 @@
-import {styled} from "styled-components"
-const Upload = () => {
-    return(
-        <div>
-          <Container>
-            <Wrapper>
-                <ImageHold>
-                    <Image/ >
-                </ImageHold>
-                </Wrapper>
-          </Container>
-        </div>
-    )
-}
-export default Upload
-const ImageHold = styled.div`
-background-color: pink;
-width: 200px;
-height: 200px;
-`
-const Image = styled.img`
-width: 100%;
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 
-`
-const Wrapper = styled.div`
-width: 50%;
-padding: 20px 20px 20px 20px;
-background-color: cyan;
-`
-const Container = styled.div`
-background-color: gray;
-height: 600px;
-width: 100vw;
-display: flex;
-justify-content: center;
-`
+function App(): JSX.Element {
+  const [width, setWidth] = useState<number>(0);
+  // useEffect runs after the component renders
+  useEffect(() => {
+    console.log('useEffect - Component has rendered');
+  });
+
+  // useLayoutEffect runs synchronously after all DOM mutations
+  useLayoutEffect(() => {
+    console.log('useLayoutEffect - DOM layout is updated');
+    const newWidth = document.getElementById('box')?.offsetWidth;
+    if (newWidth !== undefined) {
+      setWidth(newWidth);
+    }
+  }, []);
+
+  // Update the width every 3 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newWidth = Math.floor(Math.random() * 200) + 100; // Generate a random width between 100 and 300
+      setWidth(newWidth);
+    }, 3000);
+
+    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
+  }, []);
+
+  return (
+    <div>
+      <div id="box" style={{ width: `${width}px`, height: '200px', background: 'blue' }}>
+        {/* Content */}
+      </div>
+      <p>Box width: {width}px</p>
+    </div>
+  );
+}
+
+export default App;

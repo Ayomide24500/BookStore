@@ -4,7 +4,7 @@ import Hero from "./Hero";
 // import Features from "./Features";
 // import Blog from "./Blog";
 // import Footer from "../static/Footer";
-import Card from "../FileCommon/Card";
+// import Card from "../FileCommon/Card";
 
 
 
@@ -12,7 +12,7 @@ const HomeScreen = () => {
     return (
         <div>
  <Hero />
- <Card/>
+ {/* <Card/> */}
  {/* <Footer /> */}
  
         </div>

@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom"
 import Layout from "../FileCommon/Layout"
 import HomeScreen from "../pages/Homescreen"
-import Upload from "../pages/upload"
+// import Upload from "../pages/upload"
 
 
 export const Mainrouter = createBrowserRouter([
@@ -15,8 +15,8 @@ export const Mainrouter = createBrowserRouter([
             },
         ],
     },
-    {
-        path: "/upload-book",
-        element: <Upload />,
-    },
+    // {
+    //     path: "/upload-book",
+    //     element: <Upload />,
+    // },
 ])
